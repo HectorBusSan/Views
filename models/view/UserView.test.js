@@ -15,4 +15,12 @@ describe("Test for UserView",()=>{
         const result = UserView.createUser(playload);
         expect(result.error).toMatch(/necesitas un valor valido/);
     });
+    test('Create a new User by give valid playload',()=>{
+        const playload={username: "username", id: 1, name: "name"};
+        const result = UserView.createUser(playload);
+        // expect(result.name).toBe("name");
+        // expect(result.username).toBe('username');
+        // expect(result.id).toBe(1);
+        expect(result).toBe(playload)
+    })
 })

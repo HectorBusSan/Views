@@ -3,10 +3,13 @@ class UserView{
     static createUser(playload){
         if(playload===null){
             return {error: "/playload no existe/"};
-        }else if(playload.username===null || playload.name===null ||playload.id===null || typeof(playload.username==="string") || typeof(playload.name!=="string") || typeof(playload.id!=="int")){
+        }
+        else if((typeof playload.username !== 'string' || playload.username === null) || (typeof playload.user !== 'string' || playload.user === null) || (typeof playload.id !== 'number' || playload.id === null)){
             return {error: "/necesitas un valor valido/"};
-        }else{
-            return new User(playload);
+        }
+        else{
+            // play=playload.username,playload.name,playload.id;
+            return new User(playload.id,playload.username,playload.name);
         }
     }
 }
